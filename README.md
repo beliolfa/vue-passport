@@ -77,7 +77,7 @@ labels: {
 /* 
  * Placeholder for user input 
  */
-inputPlaceholder: String,
+userPlaceholder: String,
 
 /* 
  * Placeholder for password input 
