@@ -1,6 +1,6 @@
 {
   "name": "vue-passport",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "A Vue.js component that handles Laravel Passport authorization",
   "main": "dist/vue-passport.js",
   "scripts": {
