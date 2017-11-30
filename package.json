@@ -9,7 +9,8 @@
   "author": "F. Javier Martinez",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.17.1"
+    "axios": "^0.17.1",
+    "css-loader": "^0.28.7"
   },
   "repository": {
     "type": "git",
