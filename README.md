@@ -3,14 +3,15 @@
 A login component to handle authorization with Laravel Passport
 
 ## Install / Usage
-``` bash
+
+```bash
 $ npm install vue-passport
 ```
 
 ```html
 <template>
    <div id="app">
-      <VuePassportLogin 
+      <VuePassportLogin
         :api-url="apiUrl"
         :secret="secret"
       />
@@ -34,33 +35,34 @@ export default {
 ```
 
 ## Optional props
-``` bash
-/* 
- * Passport route that will get the access token 
+
+```bash
+/*
+ * Passport route that will get the access token
  */
 loginRoute: {
   type: String,
   default: 'oauth/token'
 },
 
-/* 
- * Personal API route that will get the user data 
+/*
+ * Personal API route that will get the user data
  */
 userRoute: {
   type: String,
   default: 'api/user'
 },
 
-/* 
- * Passport id from oauth_clients table 
+/*
+ * Passport id from oauth_clients table
  */
 clientId: {
   type: [Number, String],
   default: 2
 },
 
-/* 
- * Login Form Labels 
+/*
+ * Login Form Labels
  */
 labels: {
   type: Object,
@@ -74,32 +76,47 @@ labels: {
   }
 },
 
-/* 
- * Placeholder for user input 
+/*
+ * Placeholder for user input
  */
-userPlaceholder: String,
+inputPlaceholder: String,
 
-/* 
- * Placeholder for password input 
+/*
+ * Placeholder for password input
  */
 passwordPlaceholder: String,
 
-/* 
- * Class for input wrapper 
+/*
+ * Button for show/hidden password value
+ * The icon is fontawesome.io by default
+ */
+passwordReveal: Boolean,
+
+/*
+ * Class for input wrapper
  */
 controlClass: {
   type: String,
   default: 'control'
 },
 
-/* 
- * Class for input 
+/*
+ * Class for input
  */
 inputClass: {
   type: String,
   default: 'input'
 },
+
+/*
+ * Class for button
+ */
+buttonClass: {
+  type: String,
+  default: 'button'
+},
 ```
+
 ## Events
 
 You can use `success` event for trigger your local method when login was successfuly made.
@@ -108,11 +125,10 @@ It returns a payload with the user and the headers
 
 You can use `failed` event for trigger your local method when something was wrong.
 
-
 ```html
 <template>
    <div id="app">
-      <VuePassportLogin 
+      <VuePassportLogin
         :api-url="apiUrl"
         :secret="secret"
         @success="handleLogin"
