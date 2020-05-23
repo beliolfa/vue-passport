@@ -82,11 +82,6 @@ export default {
       default: 'button'
     },
 
-    apiUrl: {
-      type: String,
-      required: true
-    },
-
     loginRoute: {
       type: String,
       default: 'oauth/token'
@@ -101,11 +96,6 @@ export default {
       type: [Number, String],
       default: 2
     },
-
-    secret: {
-      type: String,
-      required: true
-    }
   },
   data() {
     return {
@@ -118,9 +108,18 @@ export default {
     }
   },
   computed: {
+    apiUrl() {
+      return process.env.VUE_APP_API_URL
+    },
+
+    secret() {
+      return process.env.VUE_APP_PASSPORT_SECRET
+    },
+
     loginUrl() {
       return `${this.apiUrl}/${this.loginRoute}`
     },
+
     userUrl() {
       return `${this.apiUrl}/${this.userRoute}`
     }
@@ -132,6 +131,7 @@ export default {
         Authorization: `Bearer ${token}`
       }
     },
+
     handleLogin() {
       this.loading = true
       const postData = {
@@ -170,6 +170,7 @@ export default {
           this.loading = false
         })
     },
+
     toggleTypePassword() {
       this.typePassword = this.typePassword === 'password' ? 'text' : 'password'
     }

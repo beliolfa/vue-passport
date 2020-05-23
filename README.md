@@ -8,13 +8,16 @@ A login component to handle authorization with Laravel Passport
 $ npm install vue-passport
 ```
 
+```bash
+#ADD THESE ENV VARIABLES TO YOUR .env
+VUE_APP_API_URL=https://your-api-url
+VUE_APP_PASSPORT_SECRET=YOUR-PASSPORT-SECRET
+```
+
 ```html
 <template>
    <div id="app">
-      <VuePassportLogin
-        :api-url="apiUrl"
-        :secret="secret"
-      />
+      <VuePassportLogin />
    </div>
 </template>
 
@@ -23,13 +26,6 @@ import VuePassportLogin from 'vue-passport'
 
 export default {
   components: { VuePassportLogin },
-
-  data () {
-    return {
-      apiUrl: process.env.API_URL,
-      secret: process.env.PASSPORT_SECRET
-    }
-  },
 }
 </script>
 ```
@@ -129,8 +125,6 @@ You can use `failed` event for trigger your local method when something was wron
 <template>
    <div id="app">
       <VuePassportLogin
-        :api-url="apiUrl"
-        :secret="secret"
         @success="handleLogin"
         @failed="handleErrors"
       />

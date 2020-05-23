@@ -3,11 +3,12 @@ const merge = require('webpack-merge');
 const path = require('path');
 
 var config = {
+  mode: 'production',
   output: {
     path: path.resolve(__dirname + '/dist/'),
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         loader: 'babel',
@@ -16,7 +17,7 @@ var config = {
       },
       {
         test: /\.vue$/,
-        loader: 'vue'
+        loader: 'vue-loader'
       },
       {
         test: /\.css$/,
@@ -27,16 +28,6 @@ var config = {
   externals: {
     axios: 'axios'
   },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin( {
-      minimize : true,
-      sourceMap : false,
-      mangle: true,
-      compress: {
-        warnings: false
-      }
-    } )
-  ]
 };
 
 module.exports = [
